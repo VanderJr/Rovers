@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mars Rover by Vander Júnior</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"/></script>
+		<script type="text/javascript" src="assets/js/jquery.mask.min.js"/></script>
+		<script type="text/javascript" src="assets/js/rover.js"/></script>
+		
+		
+	</head>
+	<body style="text-align: -webkit-center;">
+
+		<!-- Header -->
+			<header id="header">
+				<h2>Mars Rovers</h2>
+				<p>Fill in the fields below to identify the final position of the Rover on Mars.</p>
+			</header>
+
+		<div>
+			<div>
+			Size of the plateau (X|Y)
+			<br>
+        <input id = "coordXPlato" type="number" placeholder="Size X. Ex: 5">
+        <input id = "coordYPlato" type="number" placeholder="Size Y. Ex: 5">
+			</div>
+			<div>
+		    Rover position (X|Y)
+			<br>
+        <input id = "coordXRover" type="number" placeholder="Position X. Ex: 2">
+        <input id = "coordYRover" type="number" placeholder="Position Y. Ex: 2">
+			</div>
+			<div>
+				Rover initial coordinate. Ex: North
+				<br>
+		<select id = "direInicial">
+		<option value="N">North</option>
+		<option value="E">East</option>
+		<option value="W">West</option>
+		<option value="S">South</option>
+		</select>
+			</div>
+		<br>
+		<div>
+			What instructions should the Rover follow?
+			<br>
+			Ex: LMLMM
+			<br>
+         <input id = "instruction" type="text" placeholder="Instructions">
+		</div><br>
+		<button onclick="coordinates();"> Calculate</button>
+        <br>
+        <p id = "result" ></p>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.facebook.com/vanderjose" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					
+					<li><a href="https://www.linkedin.com/in/vander-jose-r-junior/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; All rights reserved.</li><li>Credits: <a href="https://www.facebook.com/vanderjose">Vander Júnior</a></li>
+				</ul>
+			</footer>
+
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
