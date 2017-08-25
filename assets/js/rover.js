@@ -1,1 +1,64 @@
-function coordinates(){var e=document.getElementById("coordXPlato").value,t=document.getElementById("coordYPlato").value,n=document.getElementById("coordXRover").value,o=document.getElementById("coordYRover").value,d=document.getElementById("direInicial").value,i=document.getElementById("instruction").value,l=n-0,r=o-0,c=0;if(e>0&&t>0&&n>0&&o>0&&d.length>0&&i.length>0){"N"==d?c=0:"E"==d?c=90:"S"==d?c=180:"W"==d&&(c=270);for(var u=i.split(""),m=0;m<u.length;m++)"l"==u[m]||"L"==u[m]?c-=90:"r"==u[m]||"R"==u[m]?c+=90:"m"!=u[m]&&"M"!=u[m]||(0==c?r+=1:90==c?l+=1:180==c?r-=1:270==c&&(l-=1)),c>270?c=0:c<0&&(c=270);0==c?direction="N":90==c?direction="E":180==c?direction="S":270==c&&(direction="W"),document.getElementById("result").innerHTML="Rover final position: "+l+" "+r+" "+direction}}
+/* Desenvolvido por Vander Junior */
+
+function coordinates() {
+    var coordXPlato = document.getElementById("coordXPlato").value;
+    var coordYPlato = document.getElementById("coordYPlato").value;
+    var coordXRover = document.getElementById("coordXRover").value;
+    var coordYRover = document.getElementById("coordYRover").value;
+    var direInicial = document.getElementById("direInicial").value;
+    var instruction = document.getElementById("instruction").value;
+    var finalX = coordXRover - 0;
+    var finalY = coordYRover - 0;
+    //position define a rosa dos ventos N E S W
+    var position = 0;
+    if (coordXPlato > 0 && coordYPlato > 0 && coordXRover > 0 && coordYRover > 0 && direInicial.length > 0 && instruction.length > 0) {
+        // posição inicial do rover
+        if (direInicial == "N") {
+            position = 0;
+        } else if (direInicial == "E") {
+            position = 90;
+        } else if (direInicial == "S") {
+            position = 180;
+        } else if (direInicial == "W") {
+            position = 270;
+        }
+        // monta array com instruções
+        var arrayInstruction = instruction.split("");
+        for (var i = 0; i < arrayInstruction.length; i++) {
+            //define a nova posição 
+            if (arrayInstruction[i] == "l" || arrayInstruction[i] == "L") {
+                position = position - 90;
+            } else if (arrayInstruction[i] == "r" || arrayInstruction[i] == "R") {
+                position = position + 90;
+            } else if (arrayInstruction[i] == "m" || arrayInstruction[i] == "M") {
+                if (position == 0) {
+                    finalY += 1;
+                } else if (position == 90) {
+                    finalX += 1;
+                } else if (position == 180) {
+                    finalY -= 1;
+                } else if (position == 270) {
+                    finalX -= 1;
+                }
+
+            }
+            if (position > 270) {
+                position = 0;
+            } else if (position < 0) {
+                position = 270;
+            }
+        }
+        if (position == 0) {
+            direction = "N";
+        } else if (position == 90) {
+            direction = "E";
+        } else if (position == 180) {
+            direction = "S";
+        } else if (position == 270) {
+            direction = "W";
+        }
+        // Monta resposta 
+        document.getElementById("result").innerHTML = "Rover final position: " + finalX + " " + finalY + " " + direction;
+    }
+
+}
